@@ -1,0 +1,419 @@
+
+% Example Biblatex Entries
+% ========================
+
+
+
+
+% Whole Journal
+% -------------
+
+@periodical{IVI-2002-12,
+  key          = "IVI",
+  journal      = "Information Visualization",
+  date         = "2002-12",
+  volume       = 41,
+  number       = 7,
+}
+
+
+
+% Papers in Journals
+% ------------------
+
+% The key field here overrides the key field in the journal being
+% cross referenced (as does the NOTE field).
+
+@article{article-crossref,
+  crossref     = "IVI-2002-12",
+  key          = "",
+  author       = "L[eslie] A. Aamport",
+  title        = "The Gnats and Gnus Document Preparation System",
+  pages        = "73+",
+  note         = "This is a cross-referencing ARTICLE entry",
+}
+
+
+@article{article-minimal,
+  author       = "L[eslie] A. Aamport",
+  title        = "The Gnats and Gnus Document Preparation System",
+  journal      = "\mbox{G-Animal's} Journal",
+  date         = "1986",
+}
+
+@article{article-full,
+  author       = "L[eslie] A. Aamport",
+  title        = "The Gnats and Gnus Document Preparation System",
+  journal      = "\mbox{G-Animal's} Journal",
+  year         = 1986,
+  month        = jul,
+  volume       = 41,
+  number       = 7,
+  pages        = "73+",
+  note         = "This is a full ARTICLE entry",
+}
+
+
+
+
+% Papers in a Collection
+% ----------------------
+
+@inbook{inbook-minimal,
+  author       = "Donald E. Knuth",
+  title        = "Fundamental Algorithms",
+  publisher    = "Addison-Wesley",
+  date         = "1973",
+  chapter      = "1.2",
+}
+
+@inbook{inbook-full,
+  author       = "Donald E. Knuth",
+  title        = "Fundamental Algorithms",
+  volume       = "1",
+  series       = "The Art of Computer Programming",
+  publisher    = "Addison-Wesley",
+  address      = "Reading, Massachusetts",
+  edition      = "2",
+  date         = "1973-01",
+  type         = "Section",
+  chapter      = "1.2",
+  pages        = "10--119",
+  note         = "This is a full INBOOK entry",
+}
+
+@inbook{inbook-crossref,
+  crossref     = "whole-set",
+  title        = "Fundamental Algorithms",
+  volume       = 1,
+  series       = "The Art of Computer Programming",
+  edition      = "2",
+  date         = "1973",
+  type         = "Section",
+  chapter      = "1.2",
+  note         = "This is a cross-referencing INBOOK entry",
+}
+
+
+
+
+% Books
+% -----
+
+@book{book-minimal,
+  author       = "Donald E. Knuth",
+  title        = "Seminumerical Algorithms",
+  publisher    = "Addison-Wesley",
+  date         = "1981",
+}
+
+@book{book-full,
+  author       = "Donald E. Knuth",
+  title        = "Seminumerical Algorithms",
+  volume       = 2,
+  series       = "The Art of Computer Programming",
+  publisher    = "Addison-Wesley",
+  address      = "Reading, Massachusetts",
+  edition      = "2",
+  date         = "1981",
+  note         = "This is a full BOOK entry",
+}
+
+@book{book-crossref,
+  crossref     = "whole-set",
+  title        = "Seminumerical Algorithms",
+  volume       = 2,
+  series       = "The Art of Computer Programming",
+  edition      = "2",
+  date         = "1981",
+  note         = "This is a cross-referencing BOOK entry",
+}
+
+@book{whole-set,
+  author       = "Donald E. Knuth",
+  publisher    = "Addison-Wesley",
+  title        = "The Art of Computer Programming",
+  series       = "Four volumes",
+  date         = "1968",
+  note         = "Seven volumes planned (this is a cross-referenced
+                  set of books)",
+}
+
+
+
+% Booklets
+% --------
+
+@booklet{booklet-minimal,
+  key          = "Kn{\printfirst{v}{1987}}",
+  title        = "The Programming of Computer Art",
+}
+
+@booklet{booklet-full,
+  author       = "Jill C. Knvth",
+  title        = "The Programming of Computer Art",
+  howpublished = "Vernier Art Center",
+  address      = "Stanford, California",
+  date         = "1988-02",
+  note         = "This is a full BOOKLET entry",
+}
+
+
+
+
+% Papers in Edited Collection
+% ---------------------------
+
+@incollection{incollection-minimal,
+  author       = "Daniel D. Lincoll",
+  title        = "Semigroups of Recurrences",
+  booktitle    = "High Speed Computer and Algorithm Organization",
+  publisher    = "Academic Press",
+  date         = "1977",
+}
+
+@incollection{incollection-full,
+  author       = "Daniel D. Lincoll",
+  title        = "Semigroups of Recurrences",
+  editor       = "David J. Lipcoll and D. H. Lawrie and A. H. Sameh",
+  booktitle    = "High Speed Computer and Algorithm Organization",
+  number       = 23,
+  series       = "Fast Computers",
+  chapter      = 3,
+  type         = "Part",
+  pages        = "179--183",
+  publisher    = "Academic Press",
+  address      = "New York",
+  edition      = "3",
+  date         = "1977-09",
+  note         = "This is a full INCOLLECTION entry",
+}
+
+@incollection{incollection-crossref,
+  crossref     = "whole-collection",
+  author       = "Daniel D. Lincoll",
+  title        = "Semigroups of Recurrences",
+  pages        = "179--183",
+  note         = "This is a cross-referencing incollection entry",
+}
+
+
+
+@book{whole-collection,
+  editor       = "David J. Lipcoll and D. H. Lawrie and A. H. Sameh",
+  title        = "High Speed Computer and Algorithm Organization",
+  booktitle    = "High Speed Computer and Algorithm Organization",
+  number       = 23,
+  series       = "Fast Computers",
+  publisher    = "Academic Press",
+  address      = "New York",
+  edition      = "3",
+  date         = "1977-09",
+  note         = "This is a cross-referenced book (collection) entry",
+}
+
+
+
+% Manuals
+% -------
+
+@manual{manual-minimal,
+  key          = "Manmaker",
+  title        = "The Definitive Computer Manual",
+}
+
+@manual{manual-full,
+  author       = "Larry Manmaker",
+  title        = "The Definitive Computer Manual",
+  organization = "Chips-R-Us",
+  address      = "Silicon Valley",
+  edition      = "Silver",
+  date         = "1986-04/1986-05",
+  note         = "This is a full manual entry",
+}
+
+
+
+% Master's Theses
+% ---------------
+
+@mastersthesis{mastersthesis-minimal,
+  author       = "Édouard Masterly",
+  title        = "Mastering Thesis Writing",
+  school       = "Stanford University",
+  date         = "1988",
+}
+
+@mastersthesis{mastersthesis-full,
+  author       = "Édouard Masterly",
+  title        = "Mastering Thesis Writing",
+  school       = "Stanford University",
+  type         = "Master's project",
+  address      = "English Department",
+  date         = "1988-06/1988-08",
+  note         = "This is a full mastersthesis entry",
+}
+
+
+
+% Miscellaneous
+% -------------
+
+@misc{misc-minimal,
+  key          = "Missilany",
+  note         = "This is a minimal misc entry",
+}
+
+@misc{misc-full,
+  author       = "Joe-Bob Missilany",
+  title        = "Handing out random pamphlets in airports",
+  howpublished = "Handed out at O'Hare",
+  date         = "1984-10",
+  note         = "This is a full misc entry",
+}
+
+
+
+
+
+% Entire Conference Proceedings
+% -----------------------------
+
+@proceedings{whole-proceedings,
+  key          = STOC-key,
+  organization = ACM,
+  title        = "Proc.\ Fifteenth Annual ACM Symposium on the
+                  Theory of Computing",
+  address      = "Boston",
+  date         = "1983",
+  booktitle    = "Proc.\ Fifteenth Annual ACM Symposium on the
+                  Theory of Computing",
+  note         = "This is a cross-referenced proceedings",
+}
+
+@proceedings{proceedings-minimal,
+  key          = STOC-key,
+  title        = "Proc.\ Fifteenth Annual ACM Symposium on the
+                  Theory of Computing",
+  date         = "1983",
+}
+
+@proceedings{proceedings-full,
+  editor       = "Wizard V. Oz and Mihalis Yannakakis",
+  title        = "Proc. Fifteenth Annual" # STOC,
+  number       = 17,
+  series       = "All ACM Conferences",
+  date         = "1983-02",
+  address      = "Boston",
+  organization = ACM,
+  publisher    = "Academic Press",
+  note         = "This is a full PROCEEDINGS entry",
+}
+
+
+
+
+
+% Papers in Conference Proceedings
+% --------------------------------
+
+@inproceedings{inproceedings-minimal,
+  author       = "Alfred V. Oaho and Jeffrey D. Ullman and Mihalis Yannakakis",
+  title        = "On Notions of Information Transfer in {VLSI} Circuits",
+  booktitle    = "Proc.\ Fifteenth Annual ACM Symposium on the
+                  Theory of Computing",
+  date         = "1983",
+}
+
+@inproceedings{inproceedings-full,
+  author       = "Alfred V. Oaho and Jeffrey D. Ullman and Mihalis Yannakakis",
+  title        = "On Notions of Information Transfer in {VLSI} Circuits",
+  editor       = "Wizard V. Oz and Mihalis Yannakakis",
+  booktitle    = "Proc.\ Fifteenth Annual ACM Symposium on the
+                  Theory of Computing",
+  venue        = "Graz, Austria",
+  date         = "1983-03",
+  organization = ACM,
+  publisher    = "Academic Press",
+  address      = "Boston",
+  series       = "All ACM Conferences",
+  number       = 17,
+  pages        = "133--139",
+  note         = "This is a full inprocedings entry",
+}
+
+@inproceedings{inproceedings-crossref,
+  crossref     = "whole-proceedings",
+  author       = "Alfred V. Oaho and Jeffrey D. Ullman and Mihalis Yannakakis",
+  title        = "On Notions of Information Transfer in {VLSI} Circuits",
+  organization = "",
+  pages        = "133--139",
+  note         = "This is a cross-referencing inproceedings entry",
+}
+
+
+
+
+% PhD Theses
+% ----------
+
+@phdthesis{phdthesis-minimal,
+  author       = "F. Phidias Phony-Baloney",
+  title        = "Fighting Fire with Fire: Festooning {F}rench Phrases",
+  school       = "Fanstord University",
+  date         = "1988",
+}
+
+@phdthesis{phdthesis-full,
+  author       = "F. Phidias Phony-Baloney",
+  title        = "Fighting Fire with Fire: Festooning {F}rench Phrases",
+  school       = "Fanstord University",
+  type         = "{PhD} Dissertation",
+  address      = "Department of French",
+  date         = "1988-06/1988-08",
+  note         = "This is a full phdthesis entry",
+}
+
+
+
+% Technical Reports
+% -----------------
+
+@techreport{techreport-minimal,
+  author       = "Tom Terrific",
+  title        = "An {$O(n \log n / \! \log\log n)$} Sorting Algorithm",
+  institution  = "Fanstord University",
+  year         = 1988,
+}
+
+@techreport{techreport-full,
+  author       = "Tom Térrific",
+  title        = "An {$O(n \log n / \! \log\log n)$} Sorting Algorithm",
+  institution  = "Fanstord University",
+  type         = "Wishful Research Result",
+  number       = "7",
+  address      = "Computer Science Department, Fanstord, California",
+  date         = "1988-10",
+  note         = "This is a full techreport entry",
+}
+
+
+
+
+% Unpublished Works
+% -----------------
+
+@unpublished{unpublished-minimal,
+  author       = "Ulrich Ünderwood and Ned Ñet and Paul Pot",
+  title        = "Lower Bounds for Wishful Research Results",
+  note         = "Talk at Fanstord University (this is a minimal UNPublished entry)",
+}
+
+@unpublished{unpublished-full,
+  author       = "Ulrich Ünderwood and Ned Ñet and Paul Pot",
+  title        = "Lower Bounds for Wishful Research Results",
+  year         = "1988-11/1988-12",
+  note         = "Talk at Fanstord University (this is a full unpublished entry)",
+}
+
+

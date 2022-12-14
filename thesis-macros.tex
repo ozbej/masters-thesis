@@ -1,0 +1,299 @@
+%----------------------------------------------------------------
+%
+%  File    :  thesis-macros.tex
+%
+%  Author  :  Keith Andrews, IICM, TU Graz, Austria
+%
+%  Created :  27 Apr 1994
+%
+%  Changed :  19 Feb 2004
+%
+%----------------------------------------------------------------
+
+% common macros and definitions
+
+
+% \liintro list item intro is a style used when list items have an
+% introduction phrase (say in italics) followed by a colon.
+\newcommand{\liintro}[1]{\emph{#1}}
+
+
+% \liheading list item heading
+% when list item has an intro phrase in bold
+\newcommand{\liheading}[1]{\textbf{#1}}
+
+
+
+
+% short notes in square brackets
+\newcommand{\shortnote}[1]
+{%
+{{\smaller{}[#1]}}
+}
+
+
+\newcommand{\TODO}[1]
+{
+{\textcolor{red}{[TODO: #1]}}
+}
+
+
+
+\newcommand{\imgcredit}[1]
+{\smaller{}[#1]}
+
+
+
+
+\newcommand{\copyrightACM}
+{%
+Copyright \copyright\ by the Association for Computing Machinery, Inc.%
+}
+
+
+
+% \newcommand{\tsup}[1]{\textsuperscript{#1}}
+
+
+
+\newcommand{\chapquote}[2]
+{%
+\begin{quote}
+\emph{%
+``#1''%
+}%
+\begin{flushright}
+{\scriptsize \sffamily [#2]}%
+\end{flushright}
+\end{quote}
+}
+
+
+
+
+
+% require the datetime and fmtcount packages
+% \usepackage[short]{datetime}   % load datetime *after* babel, requires fmtcount
+
+% for l2h: copy datetime.perl and fmtcount.perl into styles
+
+% TODO: use new datetime2 instead of datetime
+
+\newcommand{\daymonthyear}[3]
+{%
+\twodigit{#1}\hspace{0.7ex}\nolinebreak[2]\shortmonthname[#2]\hspace{0.7ex}\nolinebreak[2]#3%
+}
+
+
+\newcommand{\monthyear}[2]
+{%
+\shortmonthname[#1]\hspace{0.7ex}\nolinebreak[2]#2%
+}
+
+
+\newcommand{\yearmonthday}[3]
+{%
+\twodigit{#3}\hspace{0.7ex}\nolinebreak[2]\shortmonthname[#2]\hspace{0.7ex}\nolinebreak[2]#1%
+}
+
+
+\newcommand{\yearmonth}[2]
+{%
+\shortmonthname[#2]\hspace{0.7ex}\nolinebreak[2]#1%
+}
+
+
+
+
+% based on url package
+% define styles for class, file, and variable names
+% which break nicely at line breaks
+
+\newcommand{\ttname}{\begingroup \smaller\urlstyle{tt}\Url}
+\newcommand{\rmname}{\begingroup \smaller\urlstyle{rm}\Url}
+\newcommand{\sfname}{\begingroup \smaller\urlstyle{sf}\Url}
+
+% make the macros robust so they work inside captions, etc
+
+% fname is for file names and directory names
+\newrobustcmd{\fname}[1]{\ttname{#1}}
+
+% vname is for variable names, domain names, email addresses
+\newrobustcmd{\vname}[1]{\ttname{#1}}
+
+
+
+
+% for class names, define our own url style
+
+\makeatletter  % protect @ names
+
+% \url@letstyle: New URL style to premit break at any letters.
+% Based on \url@ttstyle
+
+\def\Url@letdo{% style assignments for tt fonts or T1 encoding
+\def\UrlBreaks{\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
+               \do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x%
+               \do\y\do\z%
+               \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L%
+               \do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+               \do\Y\do\Z%
+}%
+\def\UrlBigBreaks{\do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\%\do\;\do\>\do\]%
+ \do\)\do\,\do\?\do\'\do\+\do\=\do\#\do\:\do@url@hyp}%
+\def\UrlNoBreaks{\do\(\do\[\do\{\do\<}% (unnecessary)
+\def\UrlSpecials{\do\ {\ }}%
+\def\UrlOrds{\do\*\do\-\do\~}% any ordinary characters that aren't usually
+\Urlmuskip = 0mu plus 1mu%
+}
+
+\def\url@letstyle{%
+\@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\sffamily}}\Url@letdo
+}
+
+\makeatother  % unprotect @ names
+
+% class names
+\newcommand\letname{\begingroup \smaller\urlstyle{let}\Url}
+
+\newrobustcmd{\cname}[1]{\letname{#1}}
+
+
+% ui element names
+\newrobustcmd{\uiname}[1]{{\smaller\textsf{#1}}}
+
+% html5 element names
+\newrobustcmd{\elname}[1]{{\lstinline{<#1>}}}
+
+% css class names
+\newrobustcmd{\cssname}[1]{{\lstinline{#1}}}
+
+
+
+
+% link to Amazon or
+% http://worldcatlibraries.org/wcpa/isbn/[ISBN number]
+% http://amazon.com/exec/obidos/ASIN/#1/keithandrewshcic
+% http://amazon.com/dp/#1/
+
+\newrobustcmd{\isbn}[1]
+{%
+{%
+\ifpdf
+{\smaller ISBN
+\href{http://amazon.co.uk/dp/#1/}{#1}}%
+\else
+{\smaller ISBN #1}%
+\fi
+}%
+}
+
+
+
+% ISSN
+% http://www.bl.uk/services/bibliographic/issn.html
+% 8 digits, should be printed xxxx-xxxx
+% e.g. 0020-0190 is Information Processing Letters, Elsevier
+%
+% Lookup services:
+% http://kmittlib.lib.kmutt.ac.th:81/search/i?SEARCH=0020-0190
+% http://worldcatlibraries.org/wcpa/issn/0020-0190
+
+\newrobustcmd{\issn}[1]
+{%
+{%
+\ifpdf
+{\smaller ISSN
+\href{http://worldcatlibraries.org/wcpa/issn/#1}{#1}}%
+\else
+{\smaller ISSN #1}%
+\fi
+}%
+}
+
+
+
+% DOIs  http://doi.org/  e.g.
+% doi:10.1038/nature723
+% http://doi.org/10.1038/nature723
+
+\newrobustcmd{\doi}[1]
+{%
+{%
+\def\UrlFont{\smaller\rmfamily}
+\ifpdf                                   % pdflatex
+\href{https://doi.org/#1}{doi:\protect\nolinkurl{#1}}%
+\else                                    % latex
+doi:\protect\nolinkurl{#1}%
+\fi
+}%
+}
+
+
+
+
+
+\newrobustcmd{\website}[1]
+{%
+\ifpdf                                  % pdflatex
+\href{http://#1/}{\nolinkurl{#1}}%
+\else                                   % latex
+\nolinkurl{#1}%
+\fi
+}
+
+
+
+
+\newcommand{\news}[1]
+{%
+\ifpdf
+\href{news:#1}{\nolinkurl{#1}}
+\else
+\nolinkurl{#1}%
+\fi
+}
+
+
+
+
+
+
+% Euro symbol
+
+\newcommand{\euro}{\texteuro\,}
+
+
+% times symbol
+\newcommand{\timessym}{\texttimes\,}
+
+
+% approx symbol
+
+\newcommand{\approxsym}{\ensuremath\approx\,}
+
+
+% plusminus symbol
+
+\newcommand{\plusminussym}{\textpm\,}
+
+
+% not equal symbol
+
+\newcommand{\neqsym}{\ensuremath\neq\,}
+
+
+% rightarrow symbol
+
+\newcommand{\rightarrowsym}{\ensuremath\rightarrow\,\,}
+
+
+
+% thumbs up and thumbs down symbols
+
+\newcommand{\uthumb}{\smaller[2]\raisebox{1pt}{\textcolor{DarkGreen}{\faThumbsUp}}}
+
+\newcommand{\dthumb}{\smaller[2]\raisebox{1pt}{\textcolor{DarkRed}{\faThumbsDown}}}
+
+
+
